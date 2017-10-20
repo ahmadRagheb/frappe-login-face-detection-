@@ -72,7 +72,11 @@ def upload(rows = None, submit_after_import=None, ignore_encoding_errors=False, 
 		return [], -1
 
 	def filter_empty_columns(columns):
+<<<<<<< HEAD
 		empty_cols = filter(lambda x: x in ("", None), columns)
+=======
+		empty_cols = list(filter(lambda x: x in ("", None), columns))
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 		if empty_cols:
 			if columns[-1*len(empty_cols):] == empty_cols:

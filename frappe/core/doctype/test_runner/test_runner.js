@@ -34,6 +34,16 @@ frappe.ui.form.on('Test Runner', {
 				frappe.dom.eval(f.script);
 			});
 
+<<<<<<< HEAD
+=======
+			QUnit.config.notrycatch = true;
+
+			window.onerror = function(msg, url, lineNo, columnNo, error) {
+				console.log(error.stack); // eslint-disable-line
+				$('<div id="frappe-qunit-done"></div>').appendTo($('body'));
+			};
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			QUnit.testDone(function(details) {
 				// var result = {
 				// 	"Module name": details.module,

@@ -32,6 +32,11 @@
             data-filter="{%= col.fieldname %},=,{%= value %}">
         {% if(formatters && formatters[col.fieldname]) { %}
             {{ formatters[col.fieldname](value, col.df, data) }}
+<<<<<<< HEAD
+=======
+        {% } else if(col.fieldtype == "Code") { %}
+            {{ value }}
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
         {% } else { %}
             {{ frappe.format(value, col.df, null, data) }}
         {% } %}

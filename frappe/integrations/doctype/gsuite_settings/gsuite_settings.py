@@ -47,7 +47,11 @@ def gsuite_callback(code=None):
 				'grant_type': 'authorization_code'}
 			r = requests.post('https://www.googleapis.com/oauth2/v4/token', data=data).json()
 			frappe.db.set_value("Gsuite Settings", None, "authorization_code", code)
+<<<<<<< HEAD
 			if r.has_key('refresh_token'):
+=======
+			if 'refresh_token' in r:
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				frappe.db.set_value("Gsuite Settings", None, "refresh_token", r['refresh_token'])
 			frappe.db.commit()
 			return

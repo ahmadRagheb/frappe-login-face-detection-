@@ -491,7 +491,13 @@ def check_format(email_id):
 
 def get_name_from_email_string(email_string, email_id, name):
 	name = email_string.replace(email_id, '')
+<<<<<<< HEAD
 	name = re.sub('[^A-Za-z0-9 ]+', '', name).strip()
+=======
+	name = re.sub('[^A-Za-z0-9\u00C0-\u024F\/\_\' ]+', '', name).strip()
+	if not name:
+		name = email_id
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	return name
 
 def get_installed_apps_info():

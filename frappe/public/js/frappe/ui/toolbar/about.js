@@ -35,10 +35,17 @@ frappe.ui.misc.about = function() {
 				var v = versions[key];
 				if(v.branch) {
 					var text = $.format('<p><b>{0}:</b> v{1} ({2})<br></p>',
+<<<<<<< HEAD
 							[v.title, v.branch_version || v.version, v.branch])
 				} else {
 					var text = $.format('<p><b>{0}:</b> v{1}<br></p>',
 							[v.title, v.version])
+=======
+						[v.title, v.branch_version || v.version, v.branch])
+				} else {
+					var text = $.format('<p><b>{0}:</b> v{1}<br></p>',
+						[v.title, v.version])
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				}
 				$(text).appendTo($wrap);
 			});

@@ -12,6 +12,10 @@ import json
 from frappe import _
 from distutils.spawn import find_executable
 from frappe.utils.background_jobs import enqueue
+<<<<<<< HEAD
+=======
+from six.moves import reload_module
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 @frappe.whitelist()
 def get_app_list():
@@ -65,7 +69,11 @@ def install_app(name):
 			frappe.cache().delete_value(["app_hooks"])
 			# reload sys.path
 			import site
+<<<<<<< HEAD
 			reload(site)
+=======
+			reload_module(site)
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		else:
 			# will only come via direct API
 			frappe.throw(_("Listing app not allowed"))

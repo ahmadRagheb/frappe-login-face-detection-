@@ -80,10 +80,18 @@ def get_website_settings():
 		]
 	})
 
+<<<<<<< HEAD
 	settings = frappe.get_doc("Website Settings", "Website Settings")
 	for k in ["banner_html", "brand_html", "copyright", "twitter_share_via",
 		"facebook_share", "google_plus_one", "twitter_share", "linked_in_share",
 		"disable_signup", "hide_footer_signup", "head_html", "title_prefix"]:
+=======
+	settings = frappe.get_single("Website Settings")
+	for k in ["banner_html", "brand_html", "copyright", "twitter_share_via",
+		"facebook_share", "google_plus_one", "twitter_share", "linked_in_share",
+		"disable_signup", "hide_footer_signup", "head_html", "title_prefix",
+		"navbar_search"]:
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		if hasattr(settings, k):
 			context[k] = settings.get(k)
 

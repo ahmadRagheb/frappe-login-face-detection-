@@ -22,6 +22,19 @@ frappe.click_link = function(text, idx) {
 	return frappe.timeout(0.5);
 };
 
+<<<<<<< HEAD
+=======
+frappe.click_element = function(selector, idx) {
+	// Selector by class name like $(`.cart-items`)
+	let element = $(`${selector}`);
+	if(!element.length) {
+		throw `did not find any link containing ${selector}`;
+	}
+	element.get(idx || 0).click();
+	return frappe.timeout(0.5);
+};
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 frappe.set_control= function(fieldname, value) {
 	let control = $(`.form-control[data-fieldname="${fieldname}"]:visible`);
 	if(!control.length) {

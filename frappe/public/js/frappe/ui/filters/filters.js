@@ -133,7 +133,13 @@ frappe.ui.FilterList = Class.extend({
 		for(var i in this.filters) {
 			if(this.filters[i].field) {
 				var f = this.filters[i].get_value();
+<<<<<<< HEAD
 				if(f[0]==doctype && f[1]==fieldname && f[2]==condition && f[3]==value) {
+=======
+				var val = this.get_formatted_value(this.filters[i].field, f[3]);
+
+				if(f[0]==doctype && f[1]==fieldname && f[2]==condition && val==value) {
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 					flag = true;
 				} else if($.isArray(value) && frappe.utils.arrays_equal(value, f[3])) {
 					flag = true;
@@ -174,6 +180,22 @@ frappe.ui.FilterList = Class.extend({
 			if(this.filters[i].field && this.filters[i].field.df.fieldname==fieldname)
 				return this.filters[i];
 		}
+<<<<<<< HEAD
+=======
+	},
+
+	get_formatted_value: function(field, val){
+		var value = val;
+
+		if(field.df.fieldname==="docstatus") {
+			value = {0:"Draft", 1:"Submitted", 2:"Cancelled"}[value] || value;
+		} else if(field.df.original_type==="Check") {
+			value = {0:"No", 1:"Yes"}[cint(value)];
+		}
+
+		value = frappe.format(value, field.df, {only_value: 1});
+		return value;
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	}
 });
 
@@ -214,6 +236,10 @@ frappe.ui.Filter = Class.extend({
 		this.wrapper.find(".set-filter-and-run").on("click", function() {
 			me.wrapper.removeClass("is-new-filter");
 			me.flist.base_list.run();
+<<<<<<< HEAD
+=======
+			me.apply();
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		});
 
 		// add help for "in" codition
@@ -244,6 +270,17 @@ frappe.ui.Filter = Class.extend({
 		}
 	},
 
+<<<<<<< HEAD
+=======
+	apply: function() {
+		var f = this.get_value();
+		this.flist.filters.pop();
+		var val = this.flist.get_formatted_value(this.field, f[3]);
+		this.flist.push_new_filter(f[0], f[1], f[2], val);
+		this.wrapper.remove();
+	},
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	remove: function(dont_run) {
 		this.wrapper.remove();
 		this.$btn_group && this.$btn_group.remove();
@@ -467,6 +504,7 @@ frappe.ui.Filter = Class.extend({
 
 	set_filter_button_text: function() {
 		var value = this.get_selected_value();
+<<<<<<< HEAD
 
 		if(this.field.df.fieldname==="docstatus") {
 			value = {0:"Draft", 1:"Submitted", 2:"Cancelled"}[value] || value;
@@ -475,6 +513,9 @@ frappe.ui.Filter = Class.extend({
 		}
 
 		value = frappe.format(value, this.field.df, {only_value: 1});
+=======
+		value = this.flist.get_formatted_value(this.field, value);
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 		// for translations
 		// __("like"), __("not like"), __("in")

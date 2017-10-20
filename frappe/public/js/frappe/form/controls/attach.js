@@ -169,7 +169,21 @@ frappe.ui.form.ControlAttach = frappe.ui.form.ControlData.extend({
 		if(this.frm) {
 			return this.value;
 		} else {
+<<<<<<< HEAD
 			return this.fileobj ? (this.fileobj.filename + "," + this.dataurl) : null;
+=======
+			if ( this.fileobj ) {
+				if ( this.fileobj.file_url ) {
+					return this.fileobj.file_url;
+				} else if ( this.fileobj.filename ) {
+					var dataURI = this.fileobj.filename + ',' + this.dataurl;
+
+					return dataURI;
+				}
+			}
+
+			return null;
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		}
 	},
 
@@ -182,6 +196,10 @@ frappe.ui.form.ControlAttach = frappe.ui.form.ControlData.extend({
 		} else {
 			this.value = this.get_value();
 			this.refresh();
+<<<<<<< HEAD
+=======
+			frappe.hide_progress();
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		}
 	},
 });

@@ -112,7 +112,13 @@ class User(Document):
 				self.get("roles")]):
 			return
 
+<<<<<<< HEAD
 		if self.name not in STANDARD_USERS and self.user_type == "System User" and not self.get_other_system_managers():
+=======
+		if (self.name not in STANDARD_USERS and self.user_type == "System User" and not self.get_other_system_managers()
+			and cint(frappe.db.get_single_value('System Settings', 'setup_complete'))):
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			msgprint(_("Adding System Manager to this User as there must be atleast one System Manager"))
 			self.append("roles", {
 				"doctype": "Has Role",

@@ -245,7 +245,11 @@ def get_role_permissions(meta, user=None, verbose=False):
 					perms["apply_user_permissions"][ptype] = 1
 
 		# delete 0 values
+<<<<<<< HEAD
 		for key, value in perms.get("apply_user_permissions").items():
+=======
+		for key, value in list(perms.get("apply_user_permissions").items()):
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			if not value:
 				del perms["apply_user_permissions"][key]
 

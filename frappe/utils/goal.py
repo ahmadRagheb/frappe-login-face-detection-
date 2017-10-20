@@ -3,6 +3,11 @@
 
 from __future__ import unicode_literals
 import frappe
+<<<<<<< HEAD
+=======
+from frappe import _
+from six.moves import xrange
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 def get_monthly_results(goal_doctype, goal_field, date_col, filter_str, aggregation = 'sum'):
 	'''Get monthly aggregation values for given field of doctype'''
@@ -95,7 +100,11 @@ def get_monthly_goal_graph_data(title, doctype, docname, goal_value_field, goal_
 	specific_values = []
 	summary_values = [
 		{
+<<<<<<< HEAD
 			'name': "This month",
+=======
+			'name': _("This month"),
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			'color': 'green',
 			'value': formatted_value
 		}
@@ -104,19 +113,31 @@ def get_monthly_goal_graph_data(title, doctype, docname, goal_value_field, goal_
 	if float(goal) > 0:
 		specific_values = [
 			{
+<<<<<<< HEAD
 				'name': "Goal",
+=======
+				'name': _("Goal"),
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				'line_type': "dashed",
 				'value': goal
 			},
 		]
 		summary_values += [
 			{
+<<<<<<< HEAD
 				'name': "Goal",
+=======
+				'name': _("Goal"),
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				'color': 'blue',
 				'value': formatted_goal
 			},
 			{
+<<<<<<< HEAD
 				'name': "Completed",
+=======
+				'name': _("Completed"),
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				'color': 'green',
 				'value': str(int(round(float(current_month_value)/float(goal)*100))) + "%"
 			}

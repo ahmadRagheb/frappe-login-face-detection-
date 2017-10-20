@@ -5,7 +5,11 @@ from __future__ import unicode_literals
 import frappe
 import urllib
 from frappe.utils import escape_html, get_request_site_address, now, cstr
+<<<<<<< HEAD
 from six.moves.urllib.parse import quote
+=======
+from six.moves.urllib.parse import quote, urljoin
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 no_cache = 1
 base_template_path = "templates/www/rss.xml"
@@ -22,7 +26,11 @@ def get_context(context):
 
 	for blog in blog_list:
 		blog_page = cstr(quote(blog.name.encode("utf-8")))
+<<<<<<< HEAD
 		blog.link = urllib.basejoin(host, blog_page)
+=======
+		blog.link = urljoin(host, blog_page)
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		blog.content = escape_html(blog.content or "")
 
 	if blog_list:

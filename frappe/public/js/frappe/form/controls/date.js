@@ -39,9 +39,16 @@ frappe.ui.form.ControlDate = frappe.ui.form.ControlData.extend({
 		this.datepicker_options = {
 			language: lang,
 			autoClose: true,
+<<<<<<< HEAD
 			todayButton: frappe.datetime.now_date(true),
 			dateFormat: (frappe.boot.sysdefaults.date_format || 'yyyy-mm-dd'),
 			startDate: frappe.datetime.now_date(true),
+=======
+			todayButton: true,
+			dateFormat: (frappe.boot.sysdefaults.date_format || 'yyyy-mm-dd'),
+			startDate: frappe.datetime.now_date(true),
+			keyboardNav: false,
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			onSelect: () => {
 				this.$input.trigger('change');
 			},
@@ -70,6 +77,20 @@ frappe.ui.form.ControlDate = frappe.ui.form.ControlData.extend({
 	set_datepicker: function() {
 		this.$input.datepicker(this.datepicker_options);
 		this.datepicker = this.$input.data('datepicker');
+<<<<<<< HEAD
+=======
+
+		// today button didn't work as expected,
+		// so explicitly bind the event
+		this.datepicker.$datepicker
+			.find('[data-action="today"]')
+			.click(() => {
+				this.datepicker.selectDate(this.get_now_date());
+			});
+	},
+	get_now_date: function() {
+		return frappe.datetime.now_date(true);
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	},
 	set_t_for_today: function() {
 		var me = this;

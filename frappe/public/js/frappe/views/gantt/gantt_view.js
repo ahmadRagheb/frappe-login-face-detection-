@@ -84,6 +84,10 @@ frappe.views.GanttView = frappe.views.ListRenderer.extend({
 			}
 		});
 		this.render_dropdown();
+<<<<<<< HEAD
+=======
+		this.set_colors();
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	},
 
 	render_dropdown: function() {
@@ -105,8 +109,12 @@ frappe.views.GanttView = frappe.views.ListRenderer.extend({
 				__(view_mode) + "</a></li>";
 		});
 		var $dropdown = $(dropdown)
+<<<<<<< HEAD
 		$dropdown.find(".dropdown-menu")
 				.append(dropdown_list);
+=======
+		$dropdown.find(".dropdown-menu").append(dropdown_list);
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		me.list_view.$page
 			.find(`[data-list-renderer='Gantt'] > .list-row-right`)
 			.css("margin-right", "15px").html($dropdown)
@@ -117,6 +125,33 @@ frappe.views.GanttView = frappe.views.ListRenderer.extend({
 		});
 	},
 
+<<<<<<< HEAD
+=======
+	set_colors: function() {
+		const classes = this.tasks
+			.map(t => t.custom_class)
+			.filter(c => c && c.startsWith('color-'));
+
+		let style = classes.map(c => {
+			const class_name = c.replace('#', '');
+			const bar_color = '#' + c.substr(6);
+			const progress_color = frappe.ui.color.get_contrast_color(bar_color);
+			return `
+				.gantt .bar-wrapper.${class_name} .bar {
+					fill: ${bar_color};
+				}
+				.gantt .bar-wrapper.${class_name} .bar-progress {
+					fill: ${progress_color};
+				}
+			`;
+		}).join("");
+
+		style = `<style>${style}</style>`;
+
+		this.wrapper.prepend(style);
+	},
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	prepare_tasks: function() {
 		var me = this;
 		var meta = frappe.get_meta(this.doctype);
@@ -147,11 +182,23 @@ frappe.views.GanttView = frappe.views.ListRenderer.extend({
 				dependencies: item.depends_on_tasks || ""
 			};
 
+<<<<<<< HEAD
 			if(item.is_milestone) {
 				r['custom_class'] = 'bar-milestone';
 			};
 
 			return r
+=======
+			if(item.color && frappe.ui.color.validate_hex(item.color)) {
+				r['custom_class'] = 'color-' + item.color.substr(1);
+			}
+
+			if(item.is_milestone) {
+				r['custom_class'] = 'bar-milestone';
+			}
+
+			return r;
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		});
 	},
 	get_item: function(name) {

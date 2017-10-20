@@ -67,6 +67,7 @@ frappe.ui.Dialog = frappe.ui.FieldGroup.extend({
 			});
 
 	},
+<<<<<<< HEAD
 	focus_on_first_input: function() {
 		if(this.no_focus) return;
 		$.each(this.fields_list, function(i, f) {
@@ -76,6 +77,8 @@ frappe.ui.Dialog = frappe.ui.FieldGroup.extend({
 			}
 		});
 	},
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	get_primary_btn: function() {
 		return this.$wrapper.find(".modal-header .btn-primary");
 	},

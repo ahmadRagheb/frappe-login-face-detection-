@@ -31,6 +31,11 @@ class SystemSettings(Document):
 				if not frappe.db.get_value('SMS Settings', None, 'sms_gateway_url'):
 					frappe.throw(_('Please setup SMS before setting it as an authentication method, via SMS Settings'))
 			toggle_two_factor_auth(True, roles=['All'])
+<<<<<<< HEAD
+=======
+		else:
+			self.bypass_2fa_for_retricted_ip_users = 0
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 	def on_update(self):
 		for df in self.meta.get("fields"):
@@ -59,4 +64,8 @@ def load():
 	return {
 		"timezones": get_all_timezones(),
 		"defaults": defaults
+<<<<<<< HEAD
 	}
+=======
+	}
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581

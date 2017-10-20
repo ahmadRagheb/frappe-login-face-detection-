@@ -289,6 +289,13 @@ $.extend(frappe.model, {
 
 		} else if (!opts.source_name && opts.frm) {
 			opts.source_name = opts.frm.doc.name;
+<<<<<<< HEAD
+=======
+
+		// Allow opening a mapped doc without a source document name
+		} else if (!opts.frm) {
+			opts.source_name = null;
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		}
 
 		return frappe.call({
@@ -297,7 +304,11 @@ $.extend(frappe.model, {
 			args: {
 				method: opts.method,
 				source_name: opts.source_name,
+<<<<<<< HEAD
 				selected_children: opts.frm.get_selected()
+=======
+				selected_children: opts.frm ? opts.frm.get_selected() : null
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			},
 			freeze: true,
 			callback: function(r) {

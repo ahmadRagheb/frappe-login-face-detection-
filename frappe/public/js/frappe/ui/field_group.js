@@ -60,6 +60,18 @@ frappe.ui.FieldGroup = frappe.ui.form.Layout.extend({
 		});
 	},
 	first_button: false,
+<<<<<<< HEAD
+=======
+	focus_on_first_input: function() {
+		if(this.no_focus) return;
+		$.each(this.fields_list, function(i, f) {
+			if(!in_list(['Date', 'Datetime', 'Time'], f.df.fieldtype) && f.set_focus) {
+				f.set_focus();
+				return false;
+			}
+		});
+	},
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	catch_enter_as_submit: function() {
 		var me = this;
 		$(this.body).find('input[type="text"], input[type="password"]').keypress(function(e) {

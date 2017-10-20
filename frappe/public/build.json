@@ -61,7 +61,10 @@
 		"public/js/frappe/form/link_selector.js",
 		"public/js/frappe/form/multi_select_dialog.js",
 		"public/js/frappe/ui/dialog.js",
+<<<<<<< HEAD
 
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		"public/js/frappe/form/controls/base_control.js",
 		"public/js/frappe/form/controls/base_input.js",
 		"public/js/frappe/form/controls/data.js",
@@ -98,7 +101,10 @@
 		"public/css/bootstrap.css",
 		"public/css/font-awesome.css",
 		"public/css/octicons/octicons.css",
+<<<<<<< HEAD
 		"public/css/cal-heatmap.css",
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		"public/css/c3.min.css",
 		"public/css/desk.css",
 		"public/css/indicator.css",
@@ -162,6 +168,10 @@
 
 		"public/js/frappe/ui/page.html",
 		"public/js/frappe/ui/page.js",
+<<<<<<< HEAD
+=======
+		"public/js/frappe/ui/slides.js",
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		"public/js/frappe/ui/find.js",
 		"public/js/frappe/ui/iconbar.js",
 		"public/js/frappe/form/layout.js",
@@ -231,7 +241,10 @@
 	],
 	"js/d3.min.js": [
 		"public/js/lib/d3.min.js",
+<<<<<<< HEAD
 		"public/js/lib/cal-heatmap.js",
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		"public/js/lib/c3.min.js"
 	],
 	"css/module.min.css": [

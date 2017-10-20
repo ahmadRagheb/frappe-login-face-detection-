@@ -230,7 +230,11 @@ frappe.ui.form.Dashboard = Class.extend({
 			} else {
 				return false;
 			}
+<<<<<<< HEAD
 		} else {
+=======
+		} else if(this.data.fieldname) {
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			frappe.route_options = this.get_document_filter(doctype);
 			if(show_open) {
 				frappe.ui.notifications.show_open_count_list(doctype);
@@ -250,7 +254,11 @@ frappe.ui.form.Dashboard = Class.extend({
 		return filter;
 	},
 	set_open_count: function() {
+<<<<<<< HEAD
 		if(!this.data.transactions) {
+=======
+		if(!this.data.transactions || !this.data.fieldname) {
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			return;
 		}
 
@@ -334,6 +342,7 @@ frappe.ui.form.Dashboard = Class.extend({
 	// heatmap
 	render_heatmap: function() {
 		if(!this.heatmap) {
+<<<<<<< HEAD
 			this.heatmap = new CalHeatMap();
 			this.heatmap.init({
 				itemSelector: "#heatmap-" + frappe.model.scrub(this.frm.doctype),
@@ -350,6 +359,14 @@ frappe.ui.form.Dashboard = Class.extend({
 				displayLegend: false,
 				legend: [5, 10, 15, 20]
 				// subDomainTextFormat: "%d",
+=======
+			this.heatmap = new frappe.ui.HeatMap({
+				parent: this.heatmap_area.find("#heatmap-" + frappe.model.scrub(this.frm.doctype)),
+				height: 100,
+				start: new Date(moment().subtract(1, 'year').toDate()),
+				count_label: "items",
+				discrete_domains: 0
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			});
 
 			// center the heatmap
@@ -388,16 +405,25 @@ frappe.ui.form.Dashboard = Class.extend({
 		return indicator;
 	},
 
+<<<<<<< HEAD
 	//graphs
 	setup_graph: function() {
 		var me = this;
 
+=======
+	// graphs
+	setup_graph: function() {
+		var me = this;
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		var method = this.data.graph_method;
 		var args = {
 			doctype: this.frm.doctype,
 			docname: this.frm.doc.name,
 		};
+<<<<<<< HEAD
 
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		$.extend(args, this.data.graph_method_args);
 
 		frappe.call({
@@ -421,6 +447,7 @@ frappe.ui.form.Dashboard = Class.extend({
 			mode: 'line',
 			height: 140
 		});
+<<<<<<< HEAD
 
 		new frappe.ui.Graph(args);
 	},
@@ -444,6 +471,11 @@ frappe.ui.form.Dashboard = Class.extend({
 			this.chart.set_chart_size(me.wrapper.width() - 60);
 		}
 	},
+=======
+		new frappe.ui.Graph(args);
+	},
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	show: function() {
 		this.section.removeClass('hidden');
 	}

@@ -170,7 +170,11 @@ class File(NestedSet):
 		super(File, self).on_trash()
 		self.delete_file()
 
+<<<<<<< HEAD
 	def make_thumbnail(self, set_as_thumbnail=True, width=300, height=300, suffix="small"):
+=======
+	def make_thumbnail(self, set_as_thumbnail=True, width=300, height=300, suffix="small", crop=False):
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		if self.file_url:
 			if self.file_url.startswith("/files"):
 				try:
@@ -185,7 +189,14 @@ class File(NestedSet):
 					return
 
 			size = width, height
+<<<<<<< HEAD
 			image.thumbnail(size)
+=======
+			if crop:
+				image = ImageOps.fit(image, size, Image.ANTIALIAS)
+			else:
+				image.thumbnail(size, Image.ANTIALIAS)
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 			thumbnail_url = filename + "_" + suffix + "." + extn
 

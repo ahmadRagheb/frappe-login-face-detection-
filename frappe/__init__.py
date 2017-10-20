@@ -1022,7 +1022,12 @@ def compare(val1, condition, val2):
 	return frappe.utils.compare(val1, condition, val2)
 
 def respond_as_web_page(title, html, success=None, http_status_code=None,
+<<<<<<< HEAD
 	context=None, indicator_color=None, primary_action='/', primary_label = None, fullpage=False):
+=======
+	context=None, indicator_color=None, primary_action='/', primary_label = None, fullpage=False,
+	width=None):
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	"""Send response as a web page with a message rather than JSON. Used to show permission errors etc.
 
 	:param title: Page title and heading.
@@ -1033,7 +1038,13 @@ def respond_as_web_page(title, html, success=None, http_status_code=None,
 	:param indicator_color: color of indicator in title
 	:param primary_action: route on primary button (default is `/`)
 	:param primary_label: label on primary button (defaut is "Home")
+<<<<<<< HEAD
 	:param fullpage: hide header / footer"""
+=======
+	:param fullpage: hide header / footer
+	:param width: Width of message in pixels
+	"""
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	local.message_title = title
 	local.message = html
 	local.response['type'] = 'page'
@@ -1057,6 +1068,11 @@ def respond_as_web_page(title, html, success=None, http_status_code=None,
 	context['primary_action'] = primary_action
 	context['error_code'] = http_status_code
 	context['fullpage'] = fullpage
+<<<<<<< HEAD
+=======
+	if width:
+		context['card_width'] = width
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 	local.response['context'] = context
 
@@ -1174,7 +1190,11 @@ def as_json(obj, indent=1):
 	return json.dumps(obj, indent=indent, sort_keys=True, default=json_handler)
 
 def are_emails_muted():
+<<<<<<< HEAD
 	from utils import cint
+=======
+	from frappe.utils import cint
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	return flags.mute_emails or cint(conf.get("mute_emails") or 0) or False
 
 def get_test_records(doctype):
@@ -1344,7 +1364,11 @@ def safe_eval(code, eval_globals=None, eval_locals=None):
 	whitelisted_globals = {
 		"int": int,
 		"float": float,
+<<<<<<< HEAD
 		"long": long,
+=======
+		"long": int,
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		"round": round
 	}
 
@@ -1360,7 +1384,11 @@ def safe_eval(code, eval_globals=None, eval_locals=None):
 	return eval(code, eval_globals, eval_locals)
 
 def get_system_settings(key):
+<<<<<<< HEAD
 	if not local.system_settings.has_key(key):
+=======
+	if key not in local.system_settings:
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		local.system_settings.update({key: db.get_single_value('System Settings', key)})
 	return local.system_settings.get(key)
 

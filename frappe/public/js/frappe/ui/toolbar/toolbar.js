@@ -6,6 +6,7 @@ frappe.provide('frappe.search');
 
 frappe.ui.toolbar.Toolbar = Class.extend({
 	init: function() {
+<<<<<<< HEAD
 		var header = $('header').append(frappe.render_template("navbar", {
 			avatar: frappe.avatar(frappe.session.user)
 		}));
@@ -18,14 +19,41 @@ frappe.ui.toolbar.Toolbar = Class.extend({
 
 		this.setup_help();
 
+=======
+		$('header').append(frappe.render_template("navbar", {
+			avatar: frappe.avatar(frappe.session.user)
+		}));
+		$('.dropdown-toggle').dropdown();
+
+		let awesome_bar = new frappe.search.AwesomeBar();
+		awesome_bar.setup("#navbar-search");
+		awesome_bar.setup("#modal-search");
+
+		this.make();
+	},
+
+	make: function() {
+		this.setup_sidebar();
+		this.setup_help();
+		this.setup_progress_dialog();
+		this.bind_events();
+
+		$(document).trigger('toolbar_setup');
+	},
+
+	bind_events: function() {
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		$(document).on("notification-update", function() {
 			frappe.ui.notifications.update_notifications();
 		});
 
+<<<<<<< HEAD
 		$('.dropdown-toggle').dropdown();
 
 		$(document).trigger('toolbar_setup');
 
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		// clear all custom menus on page change
 		$(document).on("page-change", function() {
 			$("header .navbar .custom-menu").remove();
@@ -41,7 +69,10 @@ frappe.ui.toolbar.Toolbar = Class.extend({
 	},
 
 	setup_sidebar: function () {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		var header = $('header');
 		header.find(".toggle-sidebar").on("click", function () {
 			var layout_side_section = $('.layout-side-section');
@@ -186,10 +217,50 @@ frappe.ui.toolbar.Toolbar = Class.extend({
 				});
 			}
 		}
+<<<<<<< HEAD
 	}
 });
 
 
+=======
+	},
+
+	setup_progress_dialog: function() {
+		var me = this;
+		frappe.call({
+			method: "frappe.desk.user_progress.get_user_progress_slides",
+			callback: function(r) {
+				if(r.message) {
+					let slides = r.message;
+					if(slides.length && slides.map(s => parseInt(s.done)).includes(0)) {
+						frappe.require("assets/frappe/js/frappe/ui/toolbar/user_progress_dialog.js", function() {
+							me.progress_dialog = new frappe.setup.UserProgressDialog({
+								slides: slides
+							});
+							$('.user-progress').removeClass('hide');
+							$('.user-progress .dropdown-toggle').on('click', () => {
+								me.progress_dialog.show();
+							});
+
+							if (frappe.boot.is_first_startup) {
+								me.progress_dialog.show();
+								frappe.call({
+									method: "frappe.desk.page.setup_wizard.setup_wizard.reset_is_first_startup",
+									args: {},
+									callback: () => {}
+								});
+							}
+
+						});
+					}
+				}
+			},
+			freeze: false
+		});
+	}
+});
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 $.extend(frappe.ui.toolbar, {
 	add_dropdown_button: function(parent, label, click, icon) {
 		var menu = frappe.ui.toolbar.get_menu(parent);

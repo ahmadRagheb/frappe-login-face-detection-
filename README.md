@@ -22,3 +22,8 @@ For details and documentation, see the website
 ### License
 
 MIT License
+<<<<<<< HEAD
+=======
+# frappe-login-face-detection-
+# frappe-login-face-detection-
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581

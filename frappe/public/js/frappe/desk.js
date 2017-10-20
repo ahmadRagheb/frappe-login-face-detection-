@@ -45,7 +45,10 @@ frappe.Application = Class.extend({
 		this.make_nav_bar();
 		this.set_favicon();
 		this.setup_analytics();
+<<<<<<< HEAD
 		this.setup_beforeunload();
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		frappe.ui.keys.setup();
 		this.set_rtl();
 
@@ -481,6 +484,7 @@ frappe.Application = Class.extend({
 		}
 	},
 
+<<<<<<< HEAD
 	setup_beforeunload: function() {
 		if (frappe.defaults.get_default('in_selenium') || frappe.boot.developer_mode) {
 			return;
@@ -498,6 +502,8 @@ frappe.Application = Class.extend({
 		};
 	},
 
+=======
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	show_notes: function() {
 		var me = this;
 		if(frappe.boot.notes.length) {

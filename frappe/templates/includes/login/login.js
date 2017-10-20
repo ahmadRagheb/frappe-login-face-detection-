@@ -24,7 +24,25 @@ login.bind_events = function() {
 			frappe.msgprint("{{ _("Both login and password required") }}");
 			return false;
 		}
+<<<<<<< HEAD
 		login.call(args);
+=======
+		frappe.call({
+    method: "frappe.contacts.doctype.blinklogin.blink", 
+     args:{
+	usr:($("#login_email").val() || "").trim()
+		},//dotted path to server method
+    callback: function(r) {
+        // code snippet
+        //alert(""+r.message)
+        if (r.message){
+        login.call(args);
+        }
+    }
+})
+
+//		login.call(args);
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		return false;
 	});
 

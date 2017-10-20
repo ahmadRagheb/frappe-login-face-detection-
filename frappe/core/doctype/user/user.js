@@ -201,4 +201,26 @@ frappe.ModuleEditor = Class.extend({
 			}
 		});
 	}
+<<<<<<< HEAD
 })
+=======
+})
+
+
+frappe.ui.form.on("User", "face_button", function(frm) { 
+			frappe.call({
+    method: "frappe.contacts.doctype.blinklogin.face_capture", //dotted path to server method
+    callback: function(r) {
+        // code snippet
+        if (r.message){
+        	frm.set_value("login_encoding_face", r.message);
+
+        	refresh_field("login_encoding_face");
+
+        }
+    }
+})
+
+
+});
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581

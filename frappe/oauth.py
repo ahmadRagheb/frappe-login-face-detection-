@@ -148,9 +148,15 @@ class OAuthWebRequestValidator(RequestValidator):
 			oc = frappe.get_doc("OAuth Client", request.client_id)
 		else:
 			#Extract token, instantiate OAuth Bearer Token and use clientid from there.
+<<<<<<< HEAD
 			if frappe.form_dict.has_key("refresh_token"):
 				oc = frappe.get_doc("OAuth Client", frappe.db.get_value("OAuth Bearer Token", {"refresh_token": frappe.form_dict["refresh_token"]}, 'client'))
 			elif frappe.form_dict.has_key("token"):
+=======
+			if "refresh_token" in frappe.form_dict:
+				oc = frappe.get_doc("OAuth Client", frappe.db.get_value("OAuth Bearer Token", {"refresh_token": frappe.form_dict["refresh_token"]}, 'client'))
+			elif "token" in frappe.form_dict:
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				oc = frappe.get_doc("OAuth Client", frappe.db.get_value("OAuth Bearer Token", frappe.form_dict["token"], 'client'))
 			else:
 				oc = frappe.get_doc("OAuth Client", frappe.db.get_value("OAuth Bearer Token", frappe.get_request_header("Authorization").split(" ")[1], 'client'))

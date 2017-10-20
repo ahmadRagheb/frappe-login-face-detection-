@@ -5,10 +5,19 @@ frappe.ui.form.ControlDatetime = frappe.ui.form.ControlDate.extend({
 		this.date_format = moment.defaultDatetimeFormat;
 		$.extend(this.datepicker_options, {
 			timepicker: true,
+<<<<<<< HEAD
 			timeFormat: "hh:ii:ss",
 			todayButton: frappe.datetime.now_datetime(true)
 		});
 	},
+=======
+			timeFormat: "hh:ii:ss"
+		});
+	},
+	get_now_date: function() {
+		return frappe.datetime.now_datetime(true);
+	},
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	set_description: function() {
 		const { description } = this.df;
 		const { time_zone } = frappe.sys_defaults;

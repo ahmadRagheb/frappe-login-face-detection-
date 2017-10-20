@@ -490,6 +490,11 @@ frappe.search.utils = {
 			// 0 - 6 for fuzzy contain
 
 		// **Specific use-case step**
+<<<<<<< HEAD
+=======
+		keywords = keywords || '';
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		var item = __(_item || '').replace(/-/g, " ");
 
 		var ilen = item.length;

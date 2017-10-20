@@ -26,7 +26,11 @@ def get_context(context):
 		client_apps.append(app)
 
 	app = None
+<<<<<<< HEAD
 	if (frappe.form_dict.has_key("app")):
+=======
+	if "app" in frappe.form_dict:
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		app = frappe.get_doc("OAuth Client", frappe.form_dict.app)
 		app = app.__dict__
 		app["client_secret"] = None

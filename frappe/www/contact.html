@@ -3,7 +3,15 @@
 {% block title %}{{ heading or "Contact Us"}}{% endblock %}
 
 {% block page_content %}
+<<<<<<< HEAD
 
+=======
+<style>
+	.address {
+		line-height: 1.7em;
+	}
+</style>
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 <div class="contact-content">
 	{% if introduction %}
 	<div>
@@ -37,7 +45,11 @@
 			</div>
 		</div>
 		{% if address_title %}
+<<<<<<< HEAD
 		<div class="col-md-3 col-md-offset-1"
+=======
+		<div class="col-md-3 col-md-offset-1 address"
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				itemscope itemtype="http://schema.org/PostalAddress">
 			<h4 style="margin-top: 0px;"><i class="fa fa-map-marker"></i> {{ address_title }}</h4>
 			{% if address_line1 %}
@@ -56,8 +68,23 @@
 				<span itemprop="postalCode">{{ pincode }}</span><br>
 			{% endif %}
 			{% if country %}
+<<<<<<< HEAD
 				<span itemprop="addressCountry">{{ country }}</span><br>
 			{% endif %}
+=======
+				<span itemprop="addressCountry">{{ country }}</span><br><br>
+			{% endif %}
+			{% if phone %}
+				<i class='fa fa-phone'></i> <span itemprop="telephone">{{ phone }}</span><br>
+			{% endif %}
+			{% if email_id %}
+				<i class='fa fa-envelope'></i> <span itemprop="email">{{ email_id }}</span><br>
+			{% endif %}
+			{% if skype %}
+				<i class='fa fa-skype'></i> <span itemprop="email">{{ skype }}</span><br>
+			{% endif %}
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		</div>
 		{% endif %}
 	</div>

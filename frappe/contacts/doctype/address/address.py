@@ -75,6 +75,10 @@ class Address(Document):
 
 		return False
 
+<<<<<<< HEAD
+=======
+@frappe.whitelist()
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 def get_default_address(doctype, name, sort_key='is_primary_address'):
 	'''Returns default Address name for the given doctype, name'''
 	out = frappe.db.sql('''select

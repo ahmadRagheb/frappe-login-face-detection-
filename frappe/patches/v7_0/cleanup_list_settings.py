@@ -6,7 +6,11 @@ def execute():
 		for ls in list_settings:
 			if ls and ls.data:
 				data = json.loads(ls.data)
+<<<<<<< HEAD
 				if not data.has_key("fields"):
+=======
+				if "fields" not in data:
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 					continue
 				fields = data["fields"]
 				for field in fields:

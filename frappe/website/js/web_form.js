@@ -280,10 +280,21 @@ frappe.ready(function() {
 			callback: function(data) {
 				if(!data.exc) {
 					frappe.doc_name = data.message;
+<<<<<<< HEAD
 					$form.addClass("hide");
 					$(".comments, .introduction, .page-head").addClass("hide");
 					scroll(0, 0);
 					set_message(frappe.success_link, true);
+=======
+					if(!frappe.login_required) {
+						show_success_message();
+					}
+
+					if(frappe.is_new && frappe.login_required) {
+						// reload page (with ID)
+						window.location.href = window.location.pathname + "?name=" + frappe.doc_name;
+					}
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 					if(for_payment && data.message) {
 						// redirect to payment
@@ -300,6 +311,16 @@ frappe.ready(function() {
 		return true;
 	}
 
+<<<<<<< HEAD
+=======
+	function show_success_message() {
+		$form.addClass("hide");
+		$(".comments, .introduction, .page-head").addClass("hide");
+		scroll(0, 0);
+		set_message(frappe.success_link, true);
+	}
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	function show_mandatory_missing() {
 		var text = [], last_section = null;
 		frappe.mandatory_missing.forEach(function(d) {

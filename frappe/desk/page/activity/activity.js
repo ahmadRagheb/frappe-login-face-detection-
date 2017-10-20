@@ -180,6 +180,7 @@ frappe.activity.render_heatmap = function(page) {
 		method: "frappe.desk.page.activity.activity.get_heatmap_data",
 		callback: function(r) {
 			if(r.message) {
+<<<<<<< HEAD
 				var legend = [];
 				var max = Math.max.apply(this, $.map(r.message, function(v) { return v }));
 				var legend = [cint(max/5), cint(max*2/5), cint(max*3/5), cint(max*4/5)];
@@ -204,6 +205,14 @@ frappe.activity.render_heatmap = function(page) {
 						filled: "{count} actions on {date}"
 					},
 					subDomainDateFormat: "%d-%b"
+=======
+				var heatmap = new frappe.ui.HeatMap({
+					parent: $(".heatmap"),
+					height: 100,
+					start: new Date(moment().subtract(1, 'year').toDate()),
+					count_label: "actions",
+					discrete_domains: 0
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				});
 
 				heatmap.update(r.message);

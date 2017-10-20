@@ -3,6 +3,10 @@
 
 frappe.provide("frappe.views");
 frappe.provide("frappe.query_reports");
+<<<<<<< HEAD
+=======
+frappe.provide("frappe.ui.graphs");
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 frappe.standard_pages["query-report"] = function() {
 	var wrapper = frappe.container.add_page('query-report');
@@ -45,7 +49,11 @@ frappe.views.QueryReport = Class.extend({
 		<div class="no-report-area msg-box no-border" style="display: none;"></div>\
 		<div class="chart_area" style="border-bottom: 1px solid #d1d8dd; padding: 0px 5%"></div>\
 		<div class="results" style="display: none;">\
+<<<<<<< HEAD
 			<div class="result-area" style="height:400px;"></div>\
+=======
+			<div class="result-area" style="height:70vh;"></div>\
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			<button class="btn btn-secondary btn-default btn-xs expand-all hidden" style="margin: 10px;">'+__('Expand All')+'</button>\
 			<button class="btn btn-secondary btn-default btn-xs collapse-all hidden" style="margin: 10px; margin-left: 0px;">'+__('Collapse All')+'</button>\
 			<p class="help-msg alert alert-warning text-center" style="margin: 15px; margin-top: 0px;"></p>\

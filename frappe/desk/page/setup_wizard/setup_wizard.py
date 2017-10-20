@@ -151,6 +151,10 @@ def add_all_roles_to(name):
 def disable_future_access():
 	frappe.db.set_default('desktop:home_page', 'desktop')
 	frappe.db.set_value('System Settings', 'System Settings', 'setup_complete', 1)
+<<<<<<< HEAD
+=======
+	frappe.db.set_value('System Settings', 'System Settings', 'is_first_startup', 1)
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 	if not frappe.flags.in_test:
 		# remove all roles and add 'Administrator' to prevent future access
@@ -202,6 +206,13 @@ def load_user_details():
 		"email": frappe.cache().hget("email", "signup")
 	}
 
+<<<<<<< HEAD
+=======
+@frappe.whitelist()
+def reset_is_first_startup():
+	frappe.db.set_value('System Settings', 'System Settings', 'is_first_startup', 0)
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 def prettify_args(args):
 	# remove attachments
 	for key, val in args.items():

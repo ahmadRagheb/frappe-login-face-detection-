@@ -322,6 +322,12 @@ $.extend(frappe, {
 	},
 	is_user_logged_in: function() {
 		return window.full_name ? true : false;
+<<<<<<< HEAD
+=======
+	},
+	add_switch_to_desk: function() {
+		$('.switch-to-desk').removeClass('hidden');
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	}
 });
 
@@ -372,10 +378,14 @@ $(document).ready(function() {
 
 	// switch to app link
 	if(getCookie("system_user")==="yes" && logged_in) {
+<<<<<<< HEAD
 		$("#website-post-login .dropdown-menu").append('<li><a href="/desk">'
 			+__('Switch To Desk')+'</a></li>');
 		$(".navbar-header .dropdown:not(.dropdown-submenu) > .dropdown-menu")
 			.append('<li><a href="/desk">'+__('Switch To Desk')+'</a></li>');
+=======
+		frappe.add_switch_to_desk();
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	}
 
 	frappe.render_user();

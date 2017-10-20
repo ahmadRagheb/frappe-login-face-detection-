@@ -199,6 +199,12 @@ class LoginManager:
 		if cint(frappe.db.get_value("System Settings", "System Settings", "allow_login_using_mobile_number")):
 			user = frappe.db.get_value("User", filters={"mobile_no": user}, fieldname="name") or user
 
+<<<<<<< HEAD
+=======
+		if cint(frappe.db.get_value("System Settings", "System Settings", "allow_login_using_user_name")):
+			user = frappe.db.get_value("User", filters={"username": user}, fieldname="name") or user
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		self.check_if_enabled(user)
 		self.user = self.check_password(user, pwd)
 
@@ -331,4 +337,8 @@ def get_website_user_home_page(user):
 		home_page = frappe.get_attr(home_page_method[-1])(user)
 		return '/' + home_page.strip('/')
 	else:
+<<<<<<< HEAD
 		return '/me'
+=======
+		return '/me'
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581

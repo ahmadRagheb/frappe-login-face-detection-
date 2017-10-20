@@ -69,7 +69,11 @@ def render_template(template, context, is_path=None):
 		return get_jenv().from_string(template).render(context)
 
 def get_allowed_functions_for_jenv():
+<<<<<<< HEAD
 	import os
+=======
+	import os, json
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	import frappe
 	import frappe.utils
 	import frappe.utils.data
@@ -143,6 +147,10 @@ def get_allowed_functions_for_jenv():
 		"scrub": scrub,
 		"guess_mimetype": mimetypes.guess_type,
 		'html2text': html2text,
+<<<<<<< HEAD
+=======
+		'json': json,
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		"dev_server": 1 if os.environ.get('DEV_SERVER', False) else 0
 	}
 

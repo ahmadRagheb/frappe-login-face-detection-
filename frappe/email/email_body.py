@@ -51,7 +51,11 @@ class EMail:
 	Also sets all messages as multipart/alternative for cleaner reading in text-only clients
 	"""
 	def __init__(self, sender='', recipients=(), subject='', alternative=0, reply_to=None, cc=(), email_account=None, expose_recipients=None):
+<<<<<<< HEAD
 		from email import Charset
+=======
+		from email import charset as Charset
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		Charset.add_charset('utf-8', Charset.QP, Charset.QP, 'utf-8')
 
 		if isinstance(recipients, string_types):
@@ -219,10 +223,14 @@ class EMail:
 			frappe.get_attr(hook)(self)
 
 	def set_header(self, key, value):
+<<<<<<< HEAD
 		key = encode(key)
 		value = encode(value)
 
 		if self.msg_root.has_key(key):
+=======
+		if key in self.msg_root:
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			del self.msg_root[key]
 
 		self.msg_root[key] = value

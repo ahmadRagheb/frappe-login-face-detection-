@@ -1,5 +1,9 @@
 import json
+<<<<<<< HEAD
 import bleach, bleach_whitelist
+=======
+import bleach, bleach_whitelist.bleach_whitelist as bleach_whitelist
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 from six import string_types
 
 def sanitize_html(html, linkify=False):

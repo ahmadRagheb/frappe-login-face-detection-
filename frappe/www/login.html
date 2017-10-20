@@ -16,10 +16,14 @@
 			</div>
 
 			<input type="text" id="login_email"
+<<<<<<< HEAD
 				class="form-control" placeholder="{{
 					_('Email address or Mobile number')
 					if frappe.utils.cint(frappe.db.get_value('System Settings', 'System Settings', 'allow_login_using_mobile_number'))
 					else _('Email address') }}"
+=======
+				class="form-control" placeholder="{{ login_name_placeholder  }}"
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 				required autofocus>
 
 

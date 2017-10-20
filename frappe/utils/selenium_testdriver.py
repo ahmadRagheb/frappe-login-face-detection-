@@ -87,6 +87,13 @@ class TestDriver(object):
 		elem = self.find(xpath='//input[@data-fieldname="{0}"]'.format(fieldname))
 		elem[0].send_keys(text)
 
+<<<<<<< HEAD
+=======
+	def set_select(self, fieldname, text):
+		elem = self.find(xpath='//select[@data-fieldname="{0}"]'.format(fieldname))
+		elem[0].send_keys(text)
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	def set_text_editor(self, fieldname, text):
 		elem = self.find(xpath='//div[@data-fieldname="{0}"]//div[@contenteditable="true"]'.format(fieldname))
 		elem[0].send_keys(text)
@@ -99,7 +106,11 @@ class TestDriver(object):
 				selector = self.cur_route + " " + selector
 			return self.driver.find_elements_by_css_selector(selector)
 
+<<<<<<< HEAD
 	def wait_for(self, selector=None, everywhere=False, timeout=20, xpath=None):
+=======
+	def wait_for(self, selector=None, everywhere=False, timeout=20, xpath=None, for_invisible=False):
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 		if self.cur_route and not everywhere:
 			selector = self.cur_route + " " + selector
 
@@ -112,8 +123,17 @@ class TestDriver(object):
 			selector = xpath
 
 		try:
+<<<<<<< HEAD
 			elem = self.get_wait(timeout).until(
 				EC.presence_of_element_located((_by, selector)))
+=======
+			if not for_invisible:
+				elem = self.get_wait(timeout).until(
+					EC.presence_of_element_located((_by, selector)))
+			else:
+				elem = self.get_wait(timeout).until(
+					EC.invisibility_of_element_located((_by, selector)))
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 			return elem
 		except Exception as e:
 			# body = self.driver.find_element_by_id('body_div')
@@ -121,6 +141,12 @@ class TestDriver(object):
 			self.print_console()
 			raise e
 
+<<<<<<< HEAD
+=======
+	def wait_for_invisible(self, selector=None, everywhere=False, timeout=20, xpath=None):
+		self.wait_for(selector, everywhere, timeout, xpath, True)
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 	def get_console(self):
 		out = []
 		for entry in self.driver.get_log('browser'):
@@ -193,8 +219,16 @@ class TestDriver(object):
 	def execute_script(self, js):
 		self.driver.execute_script(js)
 
+<<<<<<< HEAD
 	def wait_for_ajax(self):
 		self.wait_for('body[data-ajax-state="complete"]', True)
+=======
+	def wait_for_ajax(self, freeze = False):
+		self.wait_for('body[data-ajax-state="complete"]', True)
+		if freeze:
+			self.wait_for_invisible(".freeze-message-container")
+
+>>>>>>> 176d241496ede1357a309fa44a037b757a252581
 
 # def go_to_module(module_name, item=None):
 # 	global cur_route
